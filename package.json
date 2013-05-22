@@ -1,0 +1,28 @@
+{
+  "name": "openssl-wrapper",
+  "version": "0.2.0",
+  "description": "OpenSSL wrapper",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodeunit test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mgcrea/node-openssl-wrapper"
+  },
+  "keywords": [
+    "openssl",
+    "ssl",
+    "rsa"
+  ],
+  "author": "Olivier Louvignes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mgcrea/node-openssl-wrapper/issues"
+  },
+  "dependencies": {
+    "debug": "~0.7.2",
+    "q": "~0.9.3"
+  },
+  "devDependencies": {}
+}
