@@ -37,7 +37,13 @@ export default function exec(action, maybeBuffer, maybeOptions, maybeCallback) {
     } else if (options[key] === true) {
       params.push(`-${key}`);
     } else {
-      params.push(`-${key}`, options[key]);
+      if (Array.isArray(options[key])) {
+        options[key].forEach(value => {
+          params.push(`-${key}`, value);
+        });
+      } else {
+        params.push(`-${key}`, options[key]);
+      }
     }
   });
 
