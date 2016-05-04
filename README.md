@@ -11,10 +11,10 @@ NodeJS OpenSSL wrapper
 1. Generate an RSA key
 
 ``` javascript
-import openssl from 'openssl-wrapper';
+import {exec as openssl} from 'openssl-wrapper';
 const password = 'github';
 
-return openssl.exec('genrsa', {des3: true, passout: `pass:${password}`, '2048': false}, function(err, buffer) {
+return openssl('genrsa', {des3: true, passout: `pass:${password}`, '2048': false}, function(err, buffer) {
 	console.log(buffer.toString());
 });
 ```
@@ -24,7 +24,7 @@ return openssl.exec('genrsa', {des3: true, passout: `pass:${password}`, '2048': 
 ``` javascript
 import Promise from 'bluebird';
 import openssl from 'openssl-wrapper';
-const opensslAsync = Promise.promisify(openssl);
+const opensslAsync = Promise.promisify(openssl.exec);
 
 // Extract enveloped data
 return opensslAsync('cms.verify', signedData, {inform: 'DER', noverify: true})
