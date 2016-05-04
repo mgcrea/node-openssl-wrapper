@@ -2,7 +2,6 @@
 import fs from 'fs';
 import expect from 'expect';
 import opensslWrapper from './../src';
-import debug from 'debug-utils';
 
 describe('openssl-wrapper', () => {
   it('should throw if no action is passed', () => {
