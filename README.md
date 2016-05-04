@@ -1,4 +1,4 @@
-# OpenSLL Wrapper
+# OpenSSL Wrapper
 
 [![project status](https://img.shields.io/badge/status-stable-green.svg?style=flat)](https://github.com/mgcrea/node-openssl-wrapper) [![license](https://img.shields.io/github/license/mgcrea/node-openssl-wrapper.svg?style=flat)](https://tldrlegal.com/license/mit-license) [![build status](http://img.shields.io/travis/mgcrea/node-openssl-wrapper/master.svg?style=flat)](http://travis-ci.org/mgcrea/node-openssl-wrapper) [![dependencies status](https://img.shields.io/david/mgcrea/node-openssl-wrapper.svg?style=flat)](https://david-dm.org/mgcrea/node-openssl-wrapper) [![devDependencies status](https://img.shields.io/david/dev/mgcrea/node-openssl-wrapper.svg?style=flat)](https://david-dm.org/mgcrea/node-openssl-wrapper#info=devDependencies) [![coverage status](http://img.shields.io/codeclimate/coverage/github/mgcrea/node-openssl-wrapper.svg?style=flat)](https://codeclimate.com/github/mgcrea/node-openssl-wrapper) [![climate status](https://img.shields.io/codeclimate/github/mgcrea/node-openssl-wrapper.svg?style=flat)](https://codeclimate.com/github/mgcrea/node-openssl-wrapper)
 
