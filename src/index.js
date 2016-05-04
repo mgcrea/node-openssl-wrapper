@@ -83,3 +83,5 @@ export default function exec(action, maybeBuffer, maybeOptions, maybeCallback) {
 
   return openssl;
 }
+
+export {exec};
