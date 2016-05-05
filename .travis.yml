@@ -17,4 +17,4 @@ after_script:
 
 addons:
   code_climate:
-    repo_token: abcd
+    repo_token: c504aeb3934531b5bccc1b95cfa5fe879056b2516f8669b81542cda4c1aad9e6
