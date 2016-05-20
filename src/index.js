@@ -7,7 +7,6 @@ const expectedStderrForAction = {
   'cms.verify': /^verification successful/i,
   'genrsa': /^generating/i,
   'pkcs12': /^mac verified ok/i,
-  'pkcs12.export': /^$/i,
   'req.new': /^generating/i,
   'req.verify': /^verify ok/i,
   'rsa': /^writing rsa key/i,
@@ -68,16 +67,15 @@ export default function exec(action, maybeBuffer, maybeOptions, maybeCallback) {
   openssl.on('close', code => {
     const stdout = Buffer.concat(outResult, outLength);
     const stderr = Buffer.concat(errResult, errLength).toString('utf8');
-
-    let err = new Error(stderr);
-    err.code = code;
-
     const expectedStderr = expectedStderrForAction[action];
-    if (!code && expectedStderr && stderr.match(expectedStderr)) {
-      err = null;
+    let err = null;
+
+    if (code || (stderr && expectedStderr && !stderr.match(expectedStderr))) {
+      err = new Error(stderr);
+      err.code = code;
     }
 
-    if (typeof callback === 'function') {
+    if (isFunction(callback)) {
       callback.apply(null, [err, stdout]);
     }
   });
