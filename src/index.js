@@ -7,6 +7,7 @@ const expectedStderrForAction = {
   'cms.verify': /^verification successful/i,
   'genrsa': /^generating/i,
   'pkcs12': /^mac verified ok/i,
+  'pkcs12.export': /^$/i,
   'req.new': /^generating/i,
   'req.verify': /^verify ok/i,
   'rsa': /^writing rsa key/i,
@@ -72,7 +73,7 @@ export default function exec(action, maybeBuffer, maybeOptions, maybeCallback) {
     err.code = code;
 
     const expectedStderr = expectedStderrForAction[action];
-    if (!code && expectedStderr && stderr.match(expectedStderrForAction)) {
+    if (!code && expectedStderr && stderr.match(expectedStderr)) {
       err = null;
     }
 
