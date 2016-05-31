@@ -67,16 +67,15 @@ export default function exec(action, maybeBuffer, maybeOptions, maybeCallback) {
   openssl.on('close', code => {
     const stdout = Buffer.concat(outResult, outLength);
     const stderr = Buffer.concat(errResult, errLength).toString('utf8');
-
-    let err = new Error(stderr);
-    err.code = code;
-
     const expectedStderr = expectedStderrForAction[action];
-    if (!code && expectedStderr && stderr.match(expectedStderrForAction)) {
-      err = null;
+    let err = null;
+
+    if (code || (stderr && expectedStderr && !stderr.match(expectedStderr))) {
+      err = new Error(stderr);
+      err.code = code;
     }
 
-    if (typeof callback === 'function') {
+    if (isFunction(callback)) {
       callback.apply(null, [err, stdout]);
     }
   });
