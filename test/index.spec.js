@@ -23,4 +23,12 @@ describe('openssl-wrapper', () => {
       done();
     });
   });
+  it('should support x509 action', (done) => {
+    const buffer = fs.readFileSync(`${__dirname}/fixtures/AppleIncRootCertificate.cer`);
+    opensslWrapper('x509', buffer, {noout: true, subject: true, inform: 'DER'}, (err, obj) => {
+      expect(err).toBe(null);
+      expect(obj).toBeA(Buffer);
+      done();
+    });
+  });
 });
