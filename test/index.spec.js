@@ -15,9 +15,9 @@ describe('openssl-wrapper', () => {
       done();
     });
   });
-  it('should support cms.verify action', (done) => {
+  it('should support smime.verify action', (done) => {
     const buffer = fs.readFileSync(`${__dirname}/fixtures/signed.mobileprovision`);
-    opensslWrapper('cms.verify', buffer, {inform: 'DER', noverify: true}, (err, obj) => {
+    opensslWrapper('smime.verify', buffer, {inform: 'DER', noverify: true}, (err, obj) => {
       expect(err).toBe(null);
       expect(obj).toBeA(Buffer);
       done();

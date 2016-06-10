@@ -30,7 +30,7 @@ export default function exec(action, maybeBuffer, maybeOptions, maybeCallback) {
   }
 
   // Build initial params with passed action
-  const params = action.split('.').map((value, key) => (!key ? value : `-${value}`));
+  let params = action.split('.').map((value, key) => (!key ? value : `-${value}`));
   const lastParams = [];
   Object.keys(options).forEach(key => {
     if (options[key] === false) {
@@ -47,8 +47,8 @@ export default function exec(action, maybeBuffer, maybeOptions, maybeCallback) {
       }
     }
   });
-
-  params.concat(lastParams);
+  // Append last params
+  params = params.concat(lastParams);
 
   // Actually spawn openssl command
   const openssl = spawn('openssl', params);
