@@ -24,7 +24,7 @@ return openssl('genrsa', {des3: true, passout: `pass:${password}`, '2048': false
 ``` javascript
 import Promise from 'bluebird';
 import openssl from 'openssl-wrapper';
-const opensslAsync = Promise.promisify(openssl.exec);
+const opensslAsync = Promise.promisify(openssl);
 
 // Extract enveloped data
 return opensslAsync('cms.verify', signedData, {inform: 'DER', noverify: true})
